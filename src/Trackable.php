@@ -1,6 +1,7 @@
 <?php
 
 namespace Imtigger\LaravelJobStatus;
+use JobStatus;
 
 trait Trackable
 {
@@ -20,7 +21,7 @@ trait Trackable
         }
         $this->progressNow = $value;
     }
-    
+
     protected function incrementProgress($offset = 1, $every = 1)
     {
         $value = $this->progressNow + $offset;
@@ -58,7 +59,7 @@ trait Trackable
         $status = $entityClass::create([
             'type' => static::class
         ]);
-        
+
         $this->statusId = $status->id;
     }
 
